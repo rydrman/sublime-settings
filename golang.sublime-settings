@@ -1,0 +1,26 @@
+{
+  "gopath": "/work/go",
+  "PATH": "/work/go/bin",
+
+  // Format source files each time they're saved.
+  "format_on_save": true,
+
+  // A formatting backend (must be either 'gofmt', 'goimports' or 'both').
+  // The 'both' option will first run 'goimports' then 'gofmt'
+  "format_backend": "both",
+
+  // A go-to-definition backend (must be either 'oracle' or 'godef').
+  "goto_def_backend": "godef",
+
+  // Enable gocode autocompletion.
+  "autocomplete": true,
+
+  // Enable GoTools debugging output to the Sublime console.
+  "debug_enabled": false,
+
+  // Use tabs for Go source files by default.
+  "translate_tabs_to_spaces": false,
+
+  // Use GoTools for all Go source files.
+  "extensions": ["go"]
+}

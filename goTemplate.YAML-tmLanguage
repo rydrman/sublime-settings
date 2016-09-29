@@ -1,0 +1,15 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: "Go Template"
+scopeName: source.gotemplate
+fileTypes: ['.tpl']
+uuid: 18183652-1bd9-4e25-ac2f-522d54d45231
+
+patterns:
+  - match: "\\$[A-Za-z][A-Za-z0-9_]+"
+    name: "keyword.source.gotemplate"
+  - name: "keyword.source.gotemplate"
+    begin: "{{"
+    end: "}}"
+- 
+...

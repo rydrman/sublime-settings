@@ -1,0 +1,121 @@
+%YAML1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - tpl
+scope: source.template
+variables:
+  paramList: '[^;{}<]*'
+
+contexts:
+  main:
+    - include: statement
+    - include: comments
+
+    # special function prefixes
+    - match: '\b(make|do)\b'
+      scope: storage.type.data_script
+
+    # keywords
+    - match: '\b(export|need)\b'
+      scope: keyword.data_script
+
+    # Numbers
+    - match: '\b(-)?[0-9]+(\.)?[0-9]*\b'
+      scope: constant.numeric.data_script
+
+  statement:
+    - match: '{{'
+      scope: keyword.template
+      push:
+        - meta_scope: punctuation.defintion.string.quoted.begin.template
+        - include: comments
+        - match: '}}'
+          scope: punctuation.defintion.string.quoted.end.template
+          pop: true
+
+  # # Special operators for data movement
+  # movement:
+  #   - match: '<<|>>|<|>|:'
+  #     scope: variable.language.data_script
+
+  # take-statement:
+  #   - match: '\btake\b'
+  #     scope: keyword.data_script
+  #     push:
+  #       - meta_scope: punctuation.definition.parameters.begin.data_script
+  #       - include: movement
+  #       - match: '[a-zA-z0-9_]+'
+  #         scope: variable.parameter.data_script
+  #       - match: ';|<|>|{'
+  #         scope: punctuation.definition.parameters.end.data_script
+  #         pop: true
+  #       - match: ','
+  #         scope: punctuation.separator.parameter.function.data_script
+
+  # give-statement:
+  #   - match: '\bgive\b'
+  #     scope: keyword.data_script
+
+  # event-statement:
+  #   - match: '\bemit|listen\b'
+  #     scope: keyword.data_script
+
+
+  # literal-string:
+  #   - match: "([\"\'])"
+  #     scope: punctuation.definition.string.quoted.begin.data_script
+  #     push:
+  #       - meta_include_prototype: false
+  #       - meta_scope: string.quoted.data_script
+  #       - match: \n
+  #         scope: invalid.illegal.newline.data_script
+  #         pop: true
+  #       - match: \1
+  #         scope: punctuation.definition.string.quoted.end.data_script
+  #         pop: true
+  #       - include: string-content
+
+  # string-content:
+  #   # https://mathiasbynens.be/notes/javascript-escapes
+  #   - match: \\\s*\n
+  #     scope: constant.character.escape.newline.js
+
+  #   - match: \\([1-7][0-7]{0,2}|[0-7]{2,3}|[bfnrtv0'"\\]|x\h{2}|u\{\h+\}|u\h{4})
+  #     scope: constant.character.escape.js
+
+  comments:
+    - match: /\*\*(?!/)
+      scope: punctuation.definition.comment.data_script
+      push:
+        - meta_scope: comment.block.documentation.data_script
+        - match: \*/
+          scope: punctuation.definition.comment.data_script
+          pop: true
+
+    - match: /\*
+      scope: punctuation.definition.comment.begin.data_script
+      push:
+        - meta_scope: comment.block.data_script
+        - match: \*/
+          scope: punctuation.definition.comment.end.data_script
+          pop: true
+
+    - match: (?><!--|-->)
+      scope: comment.block.html.data_script
+      captures:
+        0: punctuation.definition.comment.data_script
+
+    - match: //
+      scope: punctuation.definition.comment.data_script
+      push:
+        - meta_scope: comment.line.double-slash.data_script
+        - match: $\n?
+          pop: true
+
+    - match: ^#!
+      scope: punctuation.definition.comment.data_script
+      push:
+        - meta_scope: comment.line.shebang.data_script
+        - match: $
+          pop: true

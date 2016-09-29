@@ -1,0 +1,42 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Babel",
+		"BracketHighlighter",
+		"C Improved",
+		"Color Highlighter",
+		"Comments Aware Enter",
+		"Git",
+		"Golang Build",
+		"Golang Tools Integration",
+		"Google Spell Check",
+		"Handlebars",
+		"HOCON Syntax Highlighting",
+		"INI",
+		"LESS",
+		"Local History",
+		"Makefile Improved",
+		"Markdown Preview",
+		"Monokai Extended",
+		"Package Control",
+		"PackageDev",
+		"Puppet",
+		"Python Improved",
+		"Side-by-Side Settings",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-golint",
+		"SublimeLinter-contrib-gometalinter",
+		"SublimeLinter-contrib-jslint",
+		"SublimeLinter-contrib-puppet",
+		"SublimeLinter-contrib-puppet-lint",
+		"SublimeLinter-flake8",
+		"Terraform",
+		"Whitespace"
+	]
+}
