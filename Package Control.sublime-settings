@@ -37,6 +37,6 @@
 		"SublimeLinter-contrib-puppet-lint",
 		"SublimeLinter-flake8",
 		"Terraform",
-		"Whitespace"
+		"TrailingSpaces"
 	]
 }
