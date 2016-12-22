@@ -1,0 +1,45 @@
+// Settings in here override those in "${packages}/DoxyDoxygen/Doxy.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+    "preferred_comments_styles": [
+        [
+            "/**",
+            " *"
+        ],
+        [
+            "##",
+            "#"
+        ]
+    ],
+
+    "block_layout": {
+        "Doxygen": [
+            {
+                "tags": [
+                    "@brief",
+                    "",
+                    "@param",
+                    "",
+                    "@tparam",
+                    "",
+                    "@return",
+                    ""
+                ],
+                "context": [
+                    { "key": "kind", "operator": "not_equal", "operand": "" }
+                ]
+            }
+        ]
+    },
+
+    "autofill_rules": [
+        {
+            "parameter_description": [
+                "The class instance being operated on"
+            ],
+            "context": [
+                { "key": "parameter_name", "operator": "regex_match",  "operand": "^self$" }
+            ]
+        }
+    ]
+}
